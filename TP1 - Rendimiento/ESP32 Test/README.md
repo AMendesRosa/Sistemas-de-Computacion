@@ -7,8 +7,26 @@ En esta sección del Trabajo Práctico 1, se busco estudiar de forma empírica e
 
 ## 2- Análisis Empírico
 ### 2.1 - Realización de la Prueba
-Dado que no se tuvo poseción de una ESP32, se optó por usar un simulador online llamado [Wokwi](https://wokwi.com/projects/new/esp32-s3), el cual permite introducir un código en `C/C++` y lo compiló en una instancia virtual de este microcontrolador, la cual a fines prácticos de nuestro análisis de rendimiento será suficiente.
+Dado que no se tuvo poseción de una ESP32 en forma física, se optó por usar un simulador online llamado [Wokwi](https://wokwi.com/projects/new/esp32-s3), el cual permite introducir un código en `C/C++` y lo compiló en una instancia virtual de este microcontrolador, la cual a fines prácticos de nuestro análisis de rendimiento será suficiente.
 
-Para realizar tal medición y análisis, se diseño un código en `C` el cual realiza una serie de sumas tanto para números enteros como flotantes y mide el tiempo de ejecución mediante el comando `millis()`, para tales tareas a medida que se varía la frecuencia de la `CPU` de la placa. Para esto, se implemento mediante el código que se encuentra en este directorio y se llama `ESP32 Test.c`.
+Para realizar tal medición y análisis, se diseñó un código en `C` el cual realizó una serie de sumas tanto para números enteros como flotantes y midió el tiempo de ejecución mediante el comando `millis()`, para tales tareas a medida que se varió la frecuencia de la `CPU` de la placa. Para esto, se implementó mediante el código que se encuentra en este directorio y se llama `ESP32 Test.c`.
 
-En este código se llama en la función 
+En este código se llama en la función `ejecutarPrueba()` la cual toma como parámetro la frecuencia de la `CPU` a la cual se debe realizar el test. Internamente esta función llama a otras dos funciones llamadas `testEnteros()` y `testFloats()` las cuales ejecutan un ciclo `for()` con sumas de `500000` iteraciones.
+
+### 2.2- Análisis de los Resultados
+Una vez explicado el funcionamiento de este código, se procedió a la ejecución del mismo donde se obtuvieron los siguientes valores: 
+
+| Frecuencia (MHz) | Tiempo enteros (ms) | Tiempo float (ms) |
+| ---------------- | ------------------- | ----------------- |
+|        2         |        2828         |       31891       |
+|        4         |        1435         |       16034       |
+|        8         |        1076         |       11996       |
+
+![Resultados del test]()
+---
+
+
+
+
+
+## 3- Conclusión
