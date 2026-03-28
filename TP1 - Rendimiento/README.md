@@ -1,4 +1,4 @@
-TO DO LIST_
+# TO DO LIST:
 1) ¿Cuál es el rendimiento de estos procesadores para compilar el kernel?
  - Intel Core i5-13600K (base)
  - AMD Ryzen 9 5900X 12-Core
