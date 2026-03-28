@@ -1,11 +1,10 @@
-# Estudio sobre el Tiempo de Ejecución en la `ESP32` con variaciones en la Frecuencia del `CPU`
-
+# Informe de Análisis de Rendimiento variando la Frecuencia de CPU en una ESP32 utilizando Simulación en Wokwi.
 
 
 ## 1- Introducción al Rendimiento
 De acuerdo a la bibliografía presentada en esta asignatura, se define al rendimiento de un sistema como la capacidad que tiene dicho sistema para realizar un trabajo en un determinado tiempo. Es inversamente proporcional al tiempo, es decir, cuanto mayor sea el tiempo que necesite, menor será el rendimiento. Se tiene entonces que en base a esta definición, es de esperarse que al aumentar la frecuencia de trabajo de nuestro `CPU`, se pueden entonces ejecutar una mayor cantidad de instrucciones por unidad de tiempo, es decir y en términos más simplistas: los programas se ejecutarán más rápidos.
 
-En esta sección del Trabajo Práctico 1, se buscó estudiar de forma empírica esta relación, utilizando como base la placa `ESP32` la cual tiene la cual tiene la ventaja de que permite ajustar la frecuencia de trabajo de su `CPU`. Para ello, se ejecutó un código el cual compara la velocidad de ejecución de un código a medida que se modifica la frecuencia de trabajo del `CPU`.
+En esta sección del Trabajo Práctico 1, se buscó estudiar de forma empírica esta relación, utilizando como base la placa `ESP32` la cual tiene la ventaja de que permite ajustar la frecuencia de trabajo de su `CPU`. Para ello, se ejecutó un código el cual compara la velocidad de ejecución de un código a medida que se modifica la frecuencia de trabajo del `CPU`.
 
 
 
@@ -36,7 +35,7 @@ Una vez explicado el funcionamiento de este código, se procedió a la ejecució
 
 
 ### 2.3- Análisis del Tiempo total
-Se propone analizar primeramente, cómo varía el tiempo de ejecución en función de la frecuencia de la `CPU` de la `ESP32` ejecutar tanto las operaciones de números enteros como de números flotantes, ya que nos permitirá realizar una conclusión interesante. Veamos entonces, como podemos relacionar las frecuencias de trabajo de la `CPU` de acuerdo a los tiempos totales de ejecución del código, tomando como referencia la frecuencia de trabajo más alta
+Se propone analizar primeramente, cómo varía el tiempo de ejecución en función de la frecuencia de la `CPU` de la `ESP32` al ejecutar tanto las operaciones de números enteros como de números flotantes, ya que nos permitirá realizar una conclusión interesante. Veamos entonces, cómo podemos relacionar las frecuencias de trabajo de la `CPU` de acuerdo a los tiempos totales de ejecución del código, tomando como referencia la frecuencia de trabajo más alta.
 
 | Comparación | Relación Teórica de Frecuencias | Relación Medida de Tiempos|
 |-------------|---------------------------------|---------------------------|
@@ -87,10 +86,10 @@ R_{2-8}^{(float)} = \frac{11996}{31891} = 0,3761 \approx 0,37 \neq 0,25
 $$
 
 Nótese aquí que han ocurrido dos cosas fundamentales:
-* Al compararse el mismo tipo de operación, se tiene entonces que el número de instrucciones y los ciclos por instrucciones se vuelven irrelevantes, ya que al utilizar la ecuación de $T_{prof}$ descripta en la subsección anterior, ambos valores se cancelan, y por lo tanto, la relación de tiempos dependerá exclusivamente de la frecuencia de trabajo de la `CPU`.
-* Si bien lo anterior es cierto, se observa que en al cuadruplicar la frecuencia de trabajo del `CPU`, no se llega a una reducción del `25 [%]` sino más bien a una reducción del `~37/38 [%]` del tiempo de ejecución. Esto se debe al límite interno que cuenta [Wokwi](https://wokwi.com/projects/new/esp32-s3) y considerando también que se trata de un simulador online, lo cual afecta significativamente a los resultados de un benchmark de este estilo.
+* Al compararse el mismo tipo de operación, se tiene entonces que el número de instrucciones y los ciclos por instrucciones se vuelven irrelevantes, ya que al utilizar la ecuación de $T_{prog}$ descripta en la subsección anterior, ambos valores se cancelan, y por lo tanto, la relación de tiempos dependerá exclusivamente de la frecuencia de trabajo de la `CPU`.
+* Si bien lo anterior es cierto, se observa que al cuadruplicar la frecuencia de trabajo del `CPU`, no se llega a una reducción del `25 [%]` sino más bien a una reducción del `~37/38 [%]` del tiempo de ejecución. Esto se debe al límite interno con el que cuenta [Wokwi](https://wokwi.com/projects/new/esp32-s3) y considerando también que se trata de un simulador online, lo cual afecta significativamente a los resultados de un benchmark de este estilo.
 
-Se observa entonces que la inecualidad alcanzada en el apartado anterior, es una consecuencia directa de comparar tiempos de ejecución de 2 operaciones con distinta cantidad de Ciclos por Instrucción, ya que al analizar por partes los resultados, se llega a una relación mas directa donde $T_{prog} \ ∝ \frac{1}{f_{CPU}}$ la cual es únicamente válida para comparación entre mismo tipo de instrucciones.
+Se observa entonces que la inecuación alcanzada en el apartado anterior, es una consecuencia directa de comparar tiempos de ejecución de 2 operaciones con distinta cantidad de Ciclos por Instrucción, ya que al analizar por partes los resultados, se llega a una relación más directa donde $T_{prog} \ \propto \frac{1}{f_{CPU}}$ la cual es únicamente válida para comparación entre el mismo tipo de instrucciones.
 
 
 
