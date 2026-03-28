@@ -8,4 +8,4 @@ En esta sección del Trabajo Práctico 1, se busco estudiar de forma empírica e
 ## 2- Análisis Empírico
 Dado que no se tuvo poseción de una ESP32, se optó por usar un simulador online llamado [Wokwi](https://wokwi.com/projects/new/esp32-s2), el cual permite introducir un código en **C/C++** y lo compiló en una instancia virtual de este microcontrolador, la cual a fines prácticos de nuestro análisis de rendimiento será suficiente.
 
-Para realizar tal medición y análisis, se diseño un código en *C*
+Para realizar tal medición y análisis, se diseño un código en *C* el cual realiza una serie de sumas tanto para números enteros como flotantes y mide el tiempo de ejecución para tales tareas a medida que se varía la frecuencia de la CPU de la placa
