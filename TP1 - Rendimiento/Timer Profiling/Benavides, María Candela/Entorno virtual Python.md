@@ -38,6 +38,8 @@ Crear y  activar el entorno
 1. Creación del entorno: `python3 -m venv venv`
 2. Activar el entorno: `source venv/bin/activate` 
 
+<img width="1144" height="103" alt="image" src="https://github.com/user-attachments/assets/6ab8c4d2-d96f-46ec-81c5-c50a5a7d9211" />
+
 
 ### Instalación de las herramientas 
 
@@ -45,4 +47,5 @@ Utilicé los siguientes comandos:
   `pip install gprof2dot` 
   `sudo apt install graph`
 
+<img width="1507" height="415" alt="image" src="https://github.com/user-attachments/assets/99afbe73-a640-44f8-8416-00c48e66f5a2" />
 
