@@ -23,9 +23,9 @@ Una vez explicado el funcionamiento de este código, se procedió a la ejecució
 
 | Frecuencia `[MHz]` | Tiempo enteros `[ms]` | Tiempo float `[ms]` | Tiempo total `[ms]` |
 |--------------------|-----------------------|---------------------|---------------------|
-| 8                  | 1076                  | 11996               | 13072               |
-| 4                  | 1435                  | 16034               | 17469               |
 | 2                  | 2828                  | 31891               | 34719               |
+| 4                  | 1435                  | 16034               | 17469               |
+| 8                  | 1076                  | 11996               | 13072               |
 
 ![Resultados del test](https://github.com/ErnestMonja/Sistemas-de-Computacion/blob/main/TP1%20-%20Rendimiento/ESP32%20Test/ESP32%20-%20Test%20Results.png)
 ---
