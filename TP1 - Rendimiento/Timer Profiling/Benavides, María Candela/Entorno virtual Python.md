@@ -28,21 +28,19 @@ error: externally-managed-environment
     See /usr/share/doc/python3.13/README.venv for more information.
 
 note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
-hint: See PEP 668 for the detailed specification.```
+hint: See PEP 668 for the detailed specification.
+```
+
 
 ### Solución 
 
 Crear y  activar el entorno   
-1. Creación del entorno: python3 'm venv venv 
-2. Activar el entorno: source venv/bin/activate 
-3. Instalación de herramientas:  
-      pip install gprof2dot 
-      sudo apt install graph
+1. Creación del entorno: ´python3 -m venv venv´
+2. Activar el entorno: ´source venv/bin/activate´ 
+
 
 ### Instalación de las herramientas 
-Utilicé los siguientes comandos 
 
-  ´pip install gprof2dot´ 
-  ´sudo apt install graph´
+Utilicé los siguientes comandos: ´pip install gprof2dot´ y ´sudo apt install graph´
 
 
