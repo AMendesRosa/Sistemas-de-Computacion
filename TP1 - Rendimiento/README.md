@@ -1,4 +1,4 @@
-### Análisis de Benchmarks 
+# Análisis de Benchmarks 
 
 1) Armar una lista de benchmarks, ¿Cuáles les serían más útiles a cada uno? ¿Cuáles podrían llegar a medir mejor las tareas que ustedes realizan a diario? Pensar en las tareas que cada uno realiza a diario y escribir en una tabla de dos entradas las tareas y que benchmark la representa mejor.
 
@@ -12,7 +12,7 @@ Para los procesadores del punto 1, los benchmarks más útiles son:
   Núcleos P y E: son dos tipo de núcleos. Los núclos de Rendimiento (P) son los núcleo más grandes, potentes y rápidos de la CPU y los núcleos de Eficiencia (E) son núcleos mas pequeños que consumen muchisima menos energía, son los encargados de las tareas que corren de fondo.
   
 
-#### Tabla
+## Tabla
 
 |Tarea Diaria | Benchmark Representivo | Justificación | 
 | :---:| :---: |:---:| 
@@ -23,7 +23,7 @@ Para los procesadores del punto 1, los benchmarks más útiles son:
 |Multitarea de Desarrollo (Terminal + IDE + web )| Sysbench(CPU/Memory) | Evalúa como se comporta el sistema cuadno hay muchos procesos pidiendo memoria y ciclos de CPU al mismo tiempo, evitando cuellos de botella| 
 
 
-#### Conclusión 
+## Conclusión 
 
 Después de analizar las tareas que realizamos a diario, un benchmark que solo mida la potencia bruta de renderizado (es la capacidad máxima que tiene un procesador para trabajar manteniendo a todos sus núcleos trabajando al 100% de su capacidad), no es la mejor opción para medir el rendimiento real. 
 Para el tipo de tareas que hacemos como programación o simulación de circuitos, los benchmarks que mejor representan la activadad de nuestros procesadores son aquellos que evalúan la agilidad monohilo y la velocidad de compilación, como `CoreMark` o `Timed Linux Kernel`. Estas pruebas validan de manera más fiel como las arquitecturas más modernas (híbridas o de alto conteo de núcleos con gran caché) gestionan las ráfagas de procesamiento intenso y la multitarea compleja sin afectar la estabilidad del sistema 
@@ -31,7 +31,7 @@ Para el tipo de tareas que hacemos como programación o simulación de circuitos
 
 ---
 
-### Análisis de Rendimiento
+# Análisis de Rendimiento
 
 2) ¿Cuál es el rendimiento de estos procesadores para compilar el kernel?
  - Intel Core i5-13600K (base)
