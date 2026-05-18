@@ -1435,9 +1435,12 @@ Obtendremos como salida de la consola lo siguiente:
 [  826.135791] Modulo descargado del kernel.
 ```
 
-Nuevamente, ser observan que las mismas advertencias que arroja el Kernel de Linux sin embargo se descarga correctamente el módulo del Kernel. Se propone además, para confirmar que este módulo ya no se encuentre en la memorria, ejecutar los siguientes comandos:
+Nuevamente se observan las mismas advertencias que arroja el Kernel de Linux para el caso de la carga del módulo, sin embargo la última línea demuestra la correcta descarga del módulo del Kernel.
+
+Se propone además, para confirmar que este módulo ya no se encuentre en la memorria, ejecutar los siguientes comandos:
 
 ```bash
 lsmod | grep mod
 cat /proc/modules | grep mod
 ```
+
