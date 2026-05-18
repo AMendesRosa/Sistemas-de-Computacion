@@ -724,13 +724,18 @@ El cual tiene la siguiente salida por la consola:
 [  748.388785] Modulo cargado en el kernel.
 ```
 
-luego, al descargarlo utilizando los siguientes comandos:
+Vemos que los ultimas 3 líneas de salida nos indican que el módulo fue correctamente cargado en el Kernel a pesar de que:
+ - El código fuente del módulo no pertenece al árbol oficial del código fuente de Linux (De acuerdo a: `mimodulo: loading out-of-tree module taints kernel.`).
+ - El Kernel advierte que no puede verificar la autenticidad del autor ni garantizar que el código no haya sido alterado maliciosamente (De acuerdo a: `mimodulo: module verification failed: signature and/or required key missing - tainting kernel`).
+
+Analizamos inicialmente que una de las ventajas principales de los módulos, es que pueden ser tanto añadidos como removidos con relativa facilidad y de acuerdo a la demanda que el Software o el Usuario (Como lo es en este caso) desee. Por lo tanto, exploremos que pasa si removemos este módulo del Kernel mediante los siguientes comandos:
+
 ```bash
 sudo rmmod mimodulo
 sudo dmesg
 ```
 
-obtenemos lo siguiente:
+Obtendremos como salida de la consola lo siguiente:
 
 ```bash
 [    0.000000] Linux version 6.17.0-22-generic (buildd@lcy02-amd64-038) (x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, GNU ld (GNU Binutils for Ubuntu) 2.42) #22~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Mar 26 15:25:54 UTC 2 (Ubuntu 6.17.0-22.22~24.04.1-generic 6.17.13)
@@ -1430,7 +1435,7 @@ obtenemos lo siguiente:
 [  826.135791] Modulo descargado del kernel.
 ```
 
-Para re-confirmar que ya no está en memoria, podés volver a correr los comandos de listado. No deberían devolverte nada:
+Nuevamente, ser observan que las mismas advertencias que arroja el Kernel de Linux sin embargo se descarga correctamente el módulo del Kernel. Se propone además, para confirmar que este módulo ya no se encuentre en la memorria, ejecutar los siguientes comandos:
 
 ```bash
 lsmod | grep mod
