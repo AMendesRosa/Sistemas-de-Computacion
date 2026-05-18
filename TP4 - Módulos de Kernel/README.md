@@ -1,11 +1,17 @@
 # TP #4: Módulos de Kernel
 
+---
 ## 1. Introducción a los Módulos de Kernel
+### 1.1- Definición básica
 Antes de comenzar a definir que son los Módulos de Kernel y demás debemos primero repasar los conceptos desarrollados en trabajos prácticos anteriores, tales como el [Trabajo Práctico N°3](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP3%20-%20Modo%20Real%20vs%20Protegido%20y%20UEFI): En este trabajo, vimos que se podía ejecutar código directamente sobre la `CPU` de una computadora mediante herramientas de emulación como `QEMU`. Supongamos ahora que quisieramos conectar una impresora nueva a nuestra computadora: se tiene que el Kernel de Linux no sabe cómo comunicarse con esa impresora, lo que antiguamente se resolvía tomando todo el código fuente de Linux, agregarle el código de la comunicación de la impresora, recompilar todo el sistema operativo y reiniciar la computadora, siendo esto un proceso muy tedioso y poco práctico de implementar (Véase: [Kernel o Núcleo Monolítico](https://es.wikipedia.org/wiki/N%C3%BAcleo_monol%C3%ADtico)), que se relaciona a los conceptos estudiados en el [Trabajo Práctico N°3](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP3%20-%20Modo%20Real%20vs%20Protegido%20y%20UEFI). 
 
 Estos problemas se resuelven hoy en día utilizando los `Módulos de Kernel` de Linux, siendo estos fragmentos de código que terminan en formato `.ko` que tienen el fin de añadir o quitar una funcionalidad al Kernel sin necesidad de tener que recompilar y reiniciar todo el sistema operativo para, por ejemplo, conectar la impresora mencionada anteriormente. Se tiene entonces que estas son una manera de implementar código `On-Demand` para el Sistema Operativo de forma más eficiente. 
 
-Con estos conceptos en mente, la idea fundamental de este Trabajo Práctico consiste en descargar y compilar un archivo de Módulo del Kernel de Linux desarrollado por la cátedra de Sistemas de Computación (Véase: [Repositorio de Kernel Modules](https://gitlab.com/sistemas-de-computacion-unc/kenel-modules)), el cual fue añadido a este Repositorio. Para ello, se descargaron los archivos del GitLab, se descomprimieron y se ejecutaron los siguientes comandos en la terminal de Linux:
+
+
+---
+### 1.2- Aplicación de Módulos "Out-of-Tree"
+Con estos conceptos en mente, la idea fundamental de este Trabajo Práctico consiste en descargar y compilar un archivo de Módulo del Kernel de Linux desarrollado por la cátedra de Sistemas de Computación (Véase: [Repositorio de Kernel Modules](https://gitlab.com/sistemas-de-computacion-unc/kenel-modules)), el cual no es nativo al entorno de Linux y fue añadido a este Repositorio. Para ello, se descargaron los archivos del GitLab, se descomprimieron y se ejecutaron los siguientes comandos en la terminal de Linux:
 
 ```bash
 cd part1
@@ -13,13 +19,13 @@ cd module
 make
 ```
 
-Los primeros 2 comandos, buscan encontrar la ubicación en memoria del archivo `Makefile` y luego el comando `make` toma el código en el archivo `mimodulo.c` y lo traduce a lenguaje de máquina y creando así el archivo `mimodulo.ko` el cual consiste en el módulo de Kernel a instanciar en la computadora. Para insertar este módulo al Kernel, se utiliza la siguiente instrucción:
+Los primeros 2 comandos, buscan encontrar la ubicación en memoria del archivo `Makefile` y luego el comando `make` toma el código en el archivo `mimodulo.c` y lo traduce a lenguaje de máquina y crea el archivo `mimodulo.ko`, el cual consiste en el módulo de Kernel a instanciar en la computadora. Para insertar este módulo al Kernel, se utiliza la siguiente instrucción:
 
 ```bash
 sudo insmod mimodulo.ko
 ```
 
-Se tiene que los Módulos del Kernel no imprimen texto directamente en tu terminal, sino más bien se comunican escribiendo en el `ring buffer` del kernel. Para ver estos mensajes, se utiliza el siguiente comando en la terminal:
+Se tiene que los Módulos del Kernel no imprimen texto directamente en la terminal, sino más bien se comunican escribiendo en el `ring buffer` del Kernel. Para ver estos mensajes, se utiliza el siguiente comando en la terminal:
 
 ```bash
 sudo dmesg
@@ -1451,19 +1457,91 @@ Dado que el módulo fue descargado, es de esperarse que las salidas de estos com
 
 
 
+---
+### 1.3- Comparación entre Módulos "Out-of-Tree" vs "In-Tree"
+Tal como pudimos observar en las salidas de la terminal de la sección precedente, hay módulos oficiales o nativos de Linux los cuales se consideran como `In-Tree` y otros módulos externos y no oficiales de Linux como el que nos provee el archivo `mimodulo.c` que se consideran `Out-Of-Tree`. Es de esperarse entonces que al introducir al Kernel un módulo `Out-Of-Tree`, este arroje el siguiente mensaje en la terminal:
+
+```bash
+mimodulo: loading out-of-tree module taints kernel.
+```
+
+De forma coloquial, esta advertencia indica que el módulo no es nativo de Linux y que el sistema operativo lo va a aceptar debido a que el usuario es un administrador, sin mebargo a partir de este momento declará que el sistema está manchado (`tainted`) de modo que si la computadora llega a colapsar (Véase: [Kernel Panic](https://es.wikipedia.org/wiki/Kernel_panic)), no es posible responsabilizar al sistema operativo debido a que el error seguramente lo causo el módulo `Out-Of-Tree`.
+
+Surge entonces la pregunta de: ¿Cómo distinguimos si un módulo es o no es nativo de Linux? Para ello se nos ofrece el comando de terminal: `modinfo` el cual se utiliza para mostrar información detallada sobre los módulos del Kernel. Veamos entonces que ocurre si aplicamos el comando `modinfo mimodulo.ko` a la terminal:
+
+![1.4](https://github.com/ErnestMonja/Sistemas-de-Computacion/blob/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Capturas/1.4-%20Informaci%C3%B3n%20del%20M%C3%B3dulo%20(Out-of-Tree).png)
+
+Como es de esperarse, se observan datos creados por la cátedra de Sistemas de Computación, tales como:
+ * `filename`: Muestra la ruta exacta donde se compiló el archivo.
+ * `depends`: Al estar vacío, significa que el código es independiente y no necesita que se carguen otros módulos antes para funcionar.
+ * `vermagic`: Se trata de una marca de agua que dice para que versión exacta de Kernel fue compilado. Nótese entonces que si se intenta cargar este archivo `.ko` en un Kernel distinto, se va a arrojar un error de inmediato debido a la incopatibilidad.
+
+Sabemos que el comando `modinfo mimodulo.ko` trata de un módulo que claramente es `Out-Of-Tree`. Por lo tanto, se propone intentar obtener la información sobre un módulo `In-Tree` de Linux mediante el siguiente comando:
+
+```bash
+modinfo /lib/modules/$(uname -r)/kernel/crypto/des_generic.ko
+```
+
+La salida de la termina de este comando es la siguiente:
+
+![1.5](https://github.com/ErnestMonja/Sistemas-de-Computacion/blob/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Capturas/1.5-%20Informaci%C3%B3n%20del%20M%C3%B3dulo%20(In-Tree).png)
+
+Al intentar inspeccionar el módulo sugerido por la consigna (`des_generic.ko`), el sistema arrojó un error indicando que el archivo no existe en esa ruta. Esto ocurre porque en versiones modernas del Kernel de Linux (como la 6.17 que es la utilizada), los módulos oficiales sufren modificaciones estructurales: a menudo son comprimidos con nuevos algoritmos (adoptando extensiones como `.ko.zst` o `.ko.xz`) o son compilados estáticamente dentro del núcleo perdiendo su formato de módulo dinámico (pasando a ser `built-in`). Por lo tanto, para cumplir con el objetivo de la práctica se ejecuto en la terminal el siguiente comando:
+
+```bash
+lsmod | head -n 5
+```
+
+Este comando lista los primeros 5 módulos reales cargados en el sistema y de allí podemos elegir el primero por ejemplo y aplicarle el comando `modinfo`, de modo que la salida de consola será la siguiente:
+
+![1.6](https://github.com/ErnestMonja/Sistemas-de-Computacion/blob/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Capturas/1.6-%20Informaci%C3%B3n%20de%20Modulo%20Alternativo%20(In-Tree).png)
+
+Se observa en esta captura que aparecen varios bloques de datos propios de un módulo `In-Tree`, tales como: `sig_id`, `signer`, `sig_key`, `sig_hashalgo`, `signature` e inclusive el `intree = Y`, lo que nos indica que este módulo es efectivamente nativo de Linux. Si observamos detalladamente, vemos que uno de ellos dice explícitamente `signer: Build time autogenerated kernel key`, lo que significa que cuando Ubuntu compiló este kernel, se generó una clave privada y firmó digitalmente el módulo usando el algoritmo `SHA512` el cual el Kernel verifica esta firma al cargarlo para asegurarse de que nadie alteró el código, garantizando así la integridad y autoría del código por parte de los desarrolladores del sistema operativo.
+
+Nótese que en el `modinfo` de `mimodulo.ko` no existen ninguno de estos datos y carece de firma, justificando así la advertencia de `taint` vista en la sección precedente.
+
+
+
+---
+### 1.4- Módulos no cargados en la PC
+La sección precedente a esta trata sobre la diferencia entre módulos que son, en terminos más simples, los módulos que puede hacer un usuario y los módulos nativos de Linux, sin embargo existen una cantidad enorme de módulos que el sistema operativo decide no cargar debido a que es imposible tenerlos todos en memoria `RAM` a todos juntos (y menos si hablamos de Memoria Caché). Por lo tanto el sistema operativo solo carga en la memoria `RAM` los que realmente está usando ahora mismo.
+
+Para ver cuantos registros se encuentran actualmente cargados en la memoria `RAM`, se utiiza el siguiente comando en la terminal:
+
+![2.1](https://github.com/ErnestMonja/Sistemas-de-Computacion/blob/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Capturas/2.1-%20M%C3%B3dulos%20Cargados.png)
+
+Vemos que al momento de ejecucción de este comando, se tienen 56 módulos cargados. Sin embargo, si ejecutamos este otro comando en la terminal veremos la cantidad de módulos disponibles en el disco de la máquina:
+
+![2.2](https://github.com/ErnestMonja/Sistemas-de-Computacion/blob/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Capturas/2.2-%20M%C3%B3dulos%20Disponibles.png)
+
+
+
+
+
+
+
+
+
+
+### 1.5- Complementación con HWInfo
+...
+
+
+
 
 
 ## 2- Preguntas generales a contestar:
- - ¿Qué diferencias se pueden observar entre los dos modinfo ?
- - ¿Qué divers/modulos estan cargados en sus propias pc? comparar las salidas con las computadoras de cada integrante del grupo. Expliquen las diferencias. Carguen un txt con la salida de cada integrante en el repo y pongan un diff en el informe.
  - ¿cuales no están cargados pero están disponibles? que pasa cuando el driver de un dispositivo no está disponible.
+  
  - Correr hwinfo en una pc real con hw real y agregar la url de la información de hw en el reporte.
- - ¿Qué diferencia existe entre un módulo y un programa  ?
+ - ¿Qué diferencia existe entre un módulo y un programa?
  - ¿Cómo puede ver una lista de las llamadas al sistema que realiza un simple helloworld en c?
  - ¿Qué es un segmentation fault? ¿Cómo lo maneja el kernel y como lo hace un programa?
+   
  - ¿Se animan a intentar firmar un módulo de kernel ? y documentar el proceso ?  https://askubuntu.com/questions/770205/how-to-sign-kernel-modules-with-sign-file
  - Agregar evidencia de la compilación, carga y descarga de su propio módulo imprimiendo el nombre del equipo en los registros del kernel.
  - ¿Que pasa si mi compañero con secure boot habilitado intenta cargar un módulo firmado por mi?
+   
  - Dada la siguiente nota https://arstechnica.com/security/2024/08/a-patch-microsoft-spent-2-years-preparing-is-making-a-mess-for-some-linux-users/
     - ¿Cuál fue la consecuencia principal del parche de Microsoft sobre GRUB en sistemas con arranque dual (Linux y Windows)?
     - ¿Qué implicancia tiene desactivar Secure Boot como solución al problema descrito en el artículo?
@@ -1471,14 +1549,14 @@ Dado que el módulo fue descargado, es de esperarse que las salidas de estos com
 
 
 
-## 3- Desafío N°1 
+## 2- Desafío N°1 
  - ¿Qué es checkinstall y para qué sirve?
  - ¿Se animan a usarlo para empaquetar un hello world ?
  - Revisar la bibliografía para impulsar acciones que permitan mejorar la seguridad del kernel, concretamente: evitando cargar módulos que no estén firmados. rootkits ? 
 
 
 
-## 4- Desafio N°2
+## 3- Desafio N°2
 Debe tener respuestas precisas a las siguientes preguntas y sentencias:
  - ¿ Qué funciones tiene disponible un programa y un módulo ?
  - Espacio de usuario o espacio del kernel.
@@ -1487,6 +1565,9 @@ Debe tener respuestas precisas a las siguientes preguntas y sentencias:
 
 
 
-## 5- Bibliografía
+## 4- Bibliografía
  * [Kernel o Núcleo Monolítico](https://es.wikipedia.org/wiki/N%C3%BAcleo_monol%C3%ADtico)
  * [Repositorio de Kernel Modules](https://gitlab.com/sistemas-de-computacion-unc/kenel-modules)
+ * [Kernel Panic](https://es.wikipedia.org/wiki/Kernel_panic)
+ * [Comando modinfo](https://www.geeksforgeeks.org/linux-unix/modinfo-command-in-linux-with-examples/)
+ * [SHA-2](https://es.wikipedia.org/wiki/SHA-2)
