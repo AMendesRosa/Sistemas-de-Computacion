@@ -1,17 +1,31 @@
-# TP #4: Módulos de kernel
+# TP #4: Módulos de Kernel
 
-# 
+## 1. Introducción a los Módulos de Kernel
+Antes de comenzar a definir que son los Módulos de Kernel y demás debemos primero repasar los conceptos desarrollados en trabajos prácticos anteriores, tales como el [Trabajo Práctico N°3](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP3%20-%20Modo%20Real%20vs%20Protegido%20y%20UEFI): En este trabajo, vimos que se podía ejecutar código directamente sobre la `CPU` de una computadora mediante herramientas de emulación como `QEMU`. Supongamos ahora que quisieramos conectar una impresora nueva a nuestra computadora: se tiene que el Kernel de Linux no sabe cómo comunicarse con esa impresora, lo que antiguamente se resolvía tomando todo el código fuente de Linux, agregarle el código de la comunicación de la impresora, recompilar todo el sistema operativo y reiniciar la computadora, siendo esto un proceso muy tedioso y poco práctico de implementar (Véase: [Kernel o Núcleo Monolítico](https://es.wikipedia.org/wiki/N%C3%BAcleo_monol%C3%ADtico)), que se relaciona a los conceptos estudiados en el [Trabajo Práctico N°3](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP3%20-%20Modo%20Real%20vs%20Protegido%20y%20UEFI). 
 
-Si ejecutamos las siguientes instrucciones:
+Estos problemas se resuelven hoy en día utilizando los `Módulos de Kernel` de Linux, siendo estos fragmentos de código que terminan en formato `.ko` que tienen el fin de añadir o quitar una funcionalidad al Kernel sin necesidad de tener que recompilar y reiniciar todo el sistema operativo para, por ejemplo, conectar la impresora mencionada anteriormente. Se tiene entonces que estas son una manera de implementar código `On-Demand` para el Sistema Operativo de forma más eficiente. 
+
+Con estos conceptos en mente, la idea fundamental de este Trabajo Práctico consiste en descargar y compilar un archivo de Módulo del Kernel de Linux desarrollado por la cátedra de Sistemas de Computación (Véase: [Repositorio de Kernel Modules](https://gitlab.com/sistemas-de-computacion-unc/kenel-modules)), el cual fue añadido a este Repositorio. Para ello, se descargaron los archivos del GitLab, se descomprimieron y se ejecutaron los siguientes comandos en la terminal de Linux:
+
 ```bash
 cd part1
 cd module
 make
+```
+
+Los primeros 2 comandos, buscan encontrar la ubicación en memoria del archivo `Makefile` y luego el comando `make` toma el código en el archivo `mimodulo.c` y lo traduce a lenguaje de máquina y creando así el archivo `mimodulo.ko` el cual consiste en el módulo de Kernel a instanciar en la computadora. Para insertar este módulo al Kernel, se utiliza la siguiente instrucción:
+
+```bash
 sudo insmod mimodulo.ko
+```
+
+Se tiene que los Módulos del Kernel no imprimen texto directamente en tu terminal, sino más bien se comunican escribiendo en el `ring buffer` del kernel. Para ver estos mensajes, se utiliza el siguiente comando en la terminal:
+
+```bash
 sudo dmesg
 ```
 
-Se obtiene la siguiente salida por la consola:
+El cual tiene la siguiente salida por la consola:
 
 ```bash
 [    0.000000] Linux version 6.17.0-22-generic (buildd@lcy02-amd64-038) (x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, GNU ld (GNU Binutils for Ubuntu) 2.42) #22~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Mar 26 15:25:54 UTC 2 (Ubuntu 6.17.0-22.22~24.04.1-generic 6.17.13)
