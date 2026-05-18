@@ -1444,7 +1444,11 @@ lsmod | grep mod
 cat /proc/modules | grep mod
 ```
 
-... Lo completaré después de clases, no worries gente
+Dado que el módulo fue descargado, es de esperarse que las salidas de estos comandos no arrojen ninguna respuesta en la terminal tal como se muestra en la siguiente figura:
+
+![1.3](https://github.com/ErnestMonja/Sistemas-de-Computacion/blob/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Capturas/1.3-%20Descarga%20del%20M%C3%B3dulo%20en%20el%20SO.png)
+
+
 
 
 
