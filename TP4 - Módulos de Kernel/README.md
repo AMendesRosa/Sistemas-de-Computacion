@@ -1517,9 +1517,17 @@ Si el módulo de un dispositivo no está disponible ni compilado en el Kernel, e
 
 
 
-
 ### 1.5- Complementación con HWInfo
-...
+Para entender mejor estos resultados, se hizo uso de [HWInfo](https://www.hwinfo.com/) la cual es una herramienta de diagnóstico para sistemas Linux. Básicamente, se encarga de escanear y recopilar información muy detallada sobre todo el hardware físico que se encuentra conectado a una computadora, esto incluye el procesador (`CPU`), la memoria `RAM`, la placa base, las tarjetas de red, los discos duros, los puertos `USB`, la placa de video, etcétera.
+
+Para utilizar `HWInfo`, debemos primero instalarlo y luego le pediremos que ejecute su escaneo y lo guarde en un archivo tal como se muestra a continuación:
+
+```bash
+sudo apt install hwinfo
+sudo hwinfo > HWinfo_[NombreDelIntegrante].txt
+```
+
+Esta información es bastante util para comprender mejor los resultados obtenidos en las secciones precedentes y los resultados de esta ejecucción se pueden encontrar en la carpeta llamada [Archivos del HWInfo (.txt)](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Archivos%20del%20HWInfo%20(.txt)). Nótese que los resultados que obtuvieron Mendes Rosa y Monja son los de esperarse si se utilizan una máquina virtual mientras que los de Benavides son los de una máquina con arranque dual (Windows + Linux).
 
 
 
@@ -1644,11 +1652,17 @@ Nuevamnete tan solo se imprimen as ultimas 10 líneas y la salida de la terminal
 
 
 
+
+
+
 ## 4- Análisis del incidente de Microsoft, GRUB y Secure Boot
 En esta sección se busca analizar la nota provista sobre el incidente reciente que afectó a usuarios de Linux (Véase [“Something has gone seriously wrong,” dual-boot systems warn after Microsoft update](https://arstechnica.com/security/2024/08/a-patch-microsoft-spent-2-years-preparing-is-making-a-mess-for-some-linux-users/)) y realizar una serie de reflexiones que contesten a las preguntas del informe:
  * `Consecuencia principal del parche de Microsoft sobre GRUB`:  Microsoft lanzó una actualización de seguridad (`SBAT`) para bloquear gestores de arranque antiguos y vulnerables. Sin embargo, el parche tuvo un fallo y terminó revocando por error los certificados válidos del gestor de arranque `GRUB` en distribuciones modernas de Linux. La consecuencia principal fue que inutilizó sistemas con arranque dual (Windows y Linux), impidiendo que los usuarios pudieran iniciar su sistema operativo Linux, mostrando mensajes de error de violación de seguridad.
  * `Implicancia de desactivar Secure Boot como solución`:  Desactivar `Secure Boot` desde la `BIOS` fue la solución temporal para poder volver a arrancar Linux. Sin embargo, la implicancia crítica es que se rompe la cadena de confianza del sistema. Al apagarlo, la computadora deja de verificar las firmas criptográficas de lo que se carga antes del sistema operativo, dejando a la máquina totalmente vulnerable a ataques de bajo nivel, como `Bootkits` o `Rootkits`, que pueden instalarse en el núcleo sin ser detectados y han sido estudiados y analizados en el [Trabajo Práctico N°3](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP3%20-%20Modo%20Real%20vs%20Protegido%20y%20UEFI).
  * `Propósito principal del Secure Boot`:  El propósito central del `Secure Boot` en el proceso de arranque es garantizar que la computadora solo inicie utilizando `SW` (gestores de arranque, Kernel y módulos) que esté criptográficamente firmado y confiado por el fabricante del `HW` o del sistema operativo. Debido a que los usuarios deben desactivarlo como solución temporal para poder tener el arranque dual, esto los deja vulnerables a cualquier código malicioso o no autorizado que se ejecute antes de que el sistema operativo tenga la oportunidad de arrancar.
+
+
+
 
 
 
@@ -1662,5 +1676,6 @@ En esta sección se busca analizar la nota provista sobre el incidente reciente 
  * [Llamadas de Sistema](https://en.wikipedia.org/wiki/System_call)
  * [SIGSEGV](https://es.wikipedia.org/wiki/SIGSEGV)
  * [MOK](https://www.baeldung.com/linux/mok-machine-owner-key)
+ * [HWInfo](https://www.hwinfo.com/)
  * [“Something has gone seriously wrong,” dual-boot systems warn after Microsoft update](https://arstechnica.com/security/2024/08/a-patch-microsoft-spent-2-years-preparing-is-making-a-mess-for-some-linux-users/)
  * [Trabajo Práctico N°3 de Sistemas de Computación](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP3%20-%20Modo%20Real%20vs%20Protegido%20y%20UEFI)
