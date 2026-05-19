@@ -1598,13 +1598,15 @@ Se añadió la cabecera `<linux/utsname.h>` y se modificó la función de inicia
 int init_module(void)
 {
     printk(KERN_INFO "Módulo cargado exitosamente.\n");
+    printk(KERN_INFO "Desarrollado por el equipo: 2V 1B.\n");
     printk(KERN_INFO "Nombre del equipo anfitrión: %s\n", init_uts_ns.name.nodename);
+
     return 0;
 }
 
 void cleanup_module(void)
 {
-    printk(KERN_INFO "Módulo descargado del kernel.\n");
+    printk(KERN_INFO "Módulo de '2V 1B' descargado del Kernel. ¡Hasta luego!\n");
 }
 
 MODULE_LICENSE("GPL");
