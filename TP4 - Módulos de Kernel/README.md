@@ -1591,9 +1591,13 @@ Para cumplir con la consigna de imprimir el nombre del equipo en los registros d
 
 Se añadió la cabecera `<linux/utsname.h>` y se modificó la función de inicialización del módulo utilizando `init_uts_ns.name.nodename`. El código implementado fue el siguiente:
 ```c
-#include <linux/module.h>
-#include <linux/kernel.h>
+#include <linux/module.h>							/* Requerido por todos los módulos */
+#include <linux/kernel.h>							/* Definición de KERN_INFO */
 #include <linux/utsname.h>
+MODULE_LICENSE("GPL"); 								 /*  Licencia del modulo */
+MODULE_DESCRIPTION("Segundo modulo ejemplo");
+MODULE_AUTHOR("Grupo 2V 1B");
+
 
 int init_module(void)
 {
@@ -1609,7 +1613,10 @@ void cleanup_module(void)
     printk(KERN_INFO "Módulo de '2V 1B' descargado del Kernel. ¡Hasta luego!\n");
 }
 
-MODULE_LICENSE("GPL");
+
+/* Declaración de funciones init y exit */
+module_init(modulo_lin_init);
+module_exit(modulo_lin_clean);
 ```
 
 
