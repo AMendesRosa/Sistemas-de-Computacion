@@ -1,6 +1,6 @@
 # TP #4: Módulos de Kernel
 
----
+
 ## 1. Introducción a los Módulos de Kernel
 ### 1.1- Definición básica
 Antes de comenzar a definir que son los Módulos de Kernel y demás debemos primero repasar los conceptos desarrollados en trabajos prácticos anteriores, tales como el [Trabajo Práctico N°3](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP3%20-%20Modo%20Real%20vs%20Protegido%20y%20UEFI): En este trabajo, vimos que se podía ejecutar código directamente sobre la `CPU` de una computadora mediante herramientas de emulación como `QEMU`. Supongamos ahora que quisieramos conectar una impresora nueva a nuestra computadora: se tiene que el Kernel de Linux no sabe cómo comunicarse con esa impresora, lo que antiguamente se resolvía tomando todo el código fuente de Linux, agregarle el código de la comunicación de la impresora, recompilar todo el sistema operativo y reiniciar la computadora, siendo esto un proceso muy tedioso y poco práctico de implementar (Véase: [Kernel o Núcleo Monolítico](https://es.wikipedia.org/wiki/N%C3%BAcleo_monol%C3%ADtico)), que se relaciona a los conceptos estudiados en el [Trabajo Práctico N°3](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP3%20-%20Modo%20Real%20vs%20Protegido%20y%20UEFI). 
@@ -9,7 +9,6 @@ Estos problemas se resuelven hoy en día utilizando los `Módulos de Kernel` de 
 
 
 
----
 ### 1.2- Aplicación de Módulos "Out-of-Tree"
 Con estos conceptos en mente, la idea fundamental de este Trabajo Práctico consiste en descargar y compilar un archivo de Módulo del Kernel de Linux desarrollado por la cátedra de Sistemas de Computación (Véase: [Repositorio de Kernel Modules](https://gitlab.com/sistemas-de-computacion-unc/kenel-modules)), el cual no es nativo al entorno de Linux y fue añadido a este Repositorio. Para ello, se descargaron los archivos del GitLab, se descomprimieron y se ejecutaron los siguientes comandos en la terminal de Linux:
 
@@ -1457,7 +1456,6 @@ Dado que el módulo fue descargado, es de esperarse que las salidas de estos com
 
 
 
----
 ### 1.3- Comparación entre Módulos "Out-of-Tree" vs "In-Tree"
 Tal como pudimos observar en las salidas de la terminal de la sección precedente, hay módulos oficiales o nativos de Linux los cuales se consideran como `In-Tree` y otros módulos externos y no oficiales de Linux como el que nos provee el archivo `mimodulo.c` que se consideran `Out-Of-Tree`. Es de esperarse entonces que al introducir al Kernel un módulo `Out-Of-Tree`, este arroje el siguiente mensaje en la terminal:
 
@@ -1502,7 +1500,6 @@ Nótese que en el `modinfo` de `mimodulo.ko` no existen ninguno de estos datos y
 
 
 
----
 ### 1.4- Módulos no cargados en la PC
 La sección precedente a esta trata sobre la diferencia entre módulos que son, en terminos más simples, los módulos que puede hacer un usuario y los módulos nativos de Linux, sin embargo existen una cantidad enorme de módulos que el sistema operativo decide no cargar debido a que es imposible tenerlos todos en memoria `RAM` a todos juntos (y menos si hablamos de Memoria Caché). Por lo tanto el sistema operativo solo carga en la memoria `RAM` los que realmente está usando ahora mismo.
 
@@ -1514,11 +1511,9 @@ Vemos que al momento de ejecucción de este comando, se tienen 56 módulos carga
 
 ![2.2](https://github.com/ErnestMonja/Sistemas-de-Computacion/blob/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Capturas/2.2-%20M%C3%B3dulos%20Disponibles.png)
 
+Los módulos disponibles pero no cargados son la gran mayoría de los archivos `.ko` que residen en el directorio `/lib/modules/$(uname -r)/`. Estos incluyen controladores para miles de dispositivos de `HW` (placas de video, adaptadores de red, sistemas de archivos, etc.) que una computadora no posee físicamente en este momento. El sistema operativo los mantiene disponibles en el disco duro por si en el futuro conectamos un `HW` nuevo, pero no los carga en la memoria `RAM` para no desperdiciar recursos.
 
-
-
-
-
+Si el módulo de un dispositivo no está disponible ni compilado en el Kernel, el dispositivo físico no podrá funcionar. Aunque el sistema pueda detectar que hay un `HW` conectado a nivel eléctrico (por ejemplo, en el puerto `USB` o `PCI`), al carecer del módulo que actúa como "traductor", el Kernel no sabrá cómo enviarle instrucciones ni cómo recibir sus datos, dejando al `HW` completamente inutilizable.
 
 
 
@@ -1528,40 +1523,53 @@ Vemos que al momento de ejecucción de este comando, se tienen 56 módulos carga
 
 
 
+## 2- Arquitectura, Ejecución y Memoria en Linux
+Para comprender a fondo cómo interactúa el `SW` con el sistema operativo, resulta fundamental diferenciar los 2 modos principales de ejecución que posee la arquitectura de Linux: el Espacio de Usuario (User Space) y el Espacio de Kernel (Kernel Space). Esta separación es la raíz de las diferencias fundamentales entre un programa convencional y un módulo del núcleo.
 
 
-## 2- Preguntas generales a contestar:
- - ¿cuales no están cargados pero están disponibles? que pasa cuando el driver de un dispositivo no está disponible.
-  
- - Correr hwinfo en una pc real con hw real y agregar la url de la información de hw en el reporte.
- - ¿Qué diferencia existe entre un módulo y un programa?
- - ¿Cómo puede ver una lista de las llamadas al sistema que realiza un simple helloworld en c?
- - ¿Qué es un segmentation fault? ¿Cómo lo maneja el kernel y como lo hace un programa?
-   
- - ¿Se animan a intentar firmar un módulo de kernel ? y documentar el proceso ?  https://askubuntu.com/questions/770205/how-to-sign-kernel-modules-with-sign-file
- - Agregar evidencia de la compilación, carga y descarga de su propio módulo imprimiendo el nombre del equipo en los registros del kernel.
- - ¿Que pasa si mi compañero con secure boot habilitado intenta cargar un módulo firmado por mi?
-   
- - Dada la siguiente nota https://arstechnica.com/security/2024/08/a-patch-microsoft-spent-2-years-preparing-is-making-a-mess-for-some-linux-users/
-    - ¿Cuál fue la consecuencia principal del parche de Microsoft sobre GRUB en sistemas con arranque dual (Linux y Windows)?
-    - ¿Qué implicancia tiene desactivar Secure Boot como solución al problema descrito en el artículo?
-    - ¿Cuál es el propósito principal del Secure Boot en el proceso de arranque de un sistema?
+### 2.1- Diferencias entre módulo y programa
+La diferencia principal radica en su entorno y privilegios ya que un `programa normal` se ejecuta en el Espacio de Usuario, siendo este un entorno restringido donde no tiene acceso directo al `HW` ni a la memoria física. Su ciclo de vida es lineal: comienza en una función `main()`, ejecuta sus instrucciones y termina. Además, se apoya en librerías estándar de `C` (como `glibc` para usar `printf()` por ejemplo).
+
+Por otra parte, un `módulo` se ejecuta directamente en el Espacio de Kernel, con privilegios máximos es decir, en `Ring 0`. No tiene una función `main()`, sino que está basado en eventos: posee una función de inicialización que le permite registrarse en el sistema y una función de limpieza, para salir del mismo. Al vivir en el núcleo, un módulo no puede usar librerías de usuario; si quiere imprimir algo, debe usar las funciones internas del kernel (como `printk()` por ejemplo).
+
+
+### 2.2- Llamadas al Sistema y strace
+Dado que un programa normal opera en un entorno restringido, este no puede interactuar por sí solo con el `HW` (por ejemplo, escribir en la pantalla). Para lograrlo, debe pedirle permiso y ayuda al Kernel. Esta comunicación se realiza a través de las Llamadas al Sistema (`System Calls` o syscalls).
+
+Inclusive un programa tan simple como un "Hola Mundo" en `C`, no imprime el texto directamente sino que invoca a la `syscall write()` para que el Kernel lo haga por él. Para poder ver y auditar esta lista de peticiones en tiempo real, existe una herramienta llamada `strace`. Ejecutando en la terminal el comando: `strace ./helloworld`, se puede interceptar y observar absolutamente todas las llamadas al sistema (como `execve`, `mmap`, `write`, `exit`, etc.) que el programa le solicita al Kernel desde que inicia hasta que finaliza.
+
+
+### 2.3- Segmentation Fault y su manejo
+Esta estricta separación de espacios, también define cómo el sistema operativo maneja los errores críticos, particularmente el acceso a la memoria. Tal como se estudio en el teórico, cuando un programa intenta leer o escribir en una porción de la memoria `RAM` que no le pertenece o que es de solo lectura, se produce lo que se conoce como un `Segmentation Fault` (Fallo de Segmentación). Se tiene que la forma en que se maneja este fallo ilustra perfectamente la diferencia de privilegios mencionada al principio:
+ * `Si el fallo lo comete un programa (Espacio de Usuario)`: El `HW` de la computadora detecta la infracción y le avisa al Kernel el cual intercepta el error, le envía una señal letal (`SIGSEGV`) al programa y lo "mata" de forma limpia. El programa colapsa, pero el resto de la computadora y el sistema operativo siguen funcionando perfectamente.
+ * `Si el fallo lo comete un módulo (Espacio de Kernel)`: Como el módulo ya se está ejecutando dentro del propio cerebro del sistema operativo con acceso irrestricto, un "puntero salvaje" corrompe la memoria vital del sistema. Al no haber nadie por "encima" del kernel para matarlo de forma segura, el sistema operativo entero entra en pánico para evitar daños irreparables en los discos o el hardware. Esto desencadena un `Kernel Panic`, congelando la computadora por completo y obligando al usuario a realizar un reinicio físico.
+
+### 2.4- ...
+Drivers. Investigar contenido de /dev.
 
 
 
-## 2- Desafío N°1 
+## 3- Seguridad, Firmas y Secure Boot
+### 3.1- Firma de módulos y el rol del Secure Boot
+La consigna propone el desafío de intentar firmar un módulo de Kernel y documentar el proceso. Se tiene que firmar un módulo implica generar un par de claves criptográficas (una pública y una privada) y utilizar una herramienta del Kernel, tal como `sign-file`, para estampar la firma digital en el archivo `.ko` usando la clave privada.  
+
+Sin embargo, esto nos lleva directamente a la respuesta de Pregunta 10: `¿Qué pasa si un compañero con Secure Boot habilitado intenta cargar ese módulo firmado por mí?.` La respuesta es que el sistema rechazará la carga del módulo y arrojará un error de: `Key was rejected by service` debido a que el `Secure Boot` del compañero solo confía en las claves públicas que están registradas en el firmware de su placa base (`UEFI`) o en su base de datos de claves (es decir la: `MOK` - Machine Owner Key). Aunque el módulo se encuentre firmado digitalmente, el sistema del compañero no tiene tu clave pública para validar esa firma. Para que esto funcione, se tendría que pasar tu clave pública y el compañero debería registrarla manualmente en la `BIOS/UEFI` de su computadora antes de cargar el módulo.
+
+Volviendo a la consigna, 
  - ¿Qué es checkinstall y para qué sirve?
  - ¿Se animan a usarlo para empaquetar un hello world ?
  - Revisar la bibliografía para impulsar acciones que permitan mejorar la seguridad del kernel, concretamente: evitando cargar módulos que no estén firmados. rootkits ? 
 
 
 
-## 3- Desafio N°2
-Debe tener respuestas precisas a las siguientes preguntas y sentencias:
- - ¿ Qué funciones tiene disponible un programa y un módulo ?
- - Espacio de usuario o espacio del kernel.
- - Espacio de datos.
- - Drivers. Investigar contenido de /dev.
+
+
+
+## 4- Análisis del incidente de Microsoft, GRUB y Secure Boot
+En esta sección se busca analizar la nota provista sobre el incidente reciente que afectó a usuarios de Linux (Véase [“Something has gone seriously wrong,” dual-boot systems warn after Microsoft update](https://arstechnica.com/security/2024/08/a-patch-microsoft-spent-2-years-preparing-is-making-a-mess-for-some-linux-users/)) y realizar una serie de reflexiones que contesten a las preguntas del informe:
+ * `Consecuencia principal del parche de Microsoft sobre GRUB`:  Microsoft lanzó una actualización de seguridad (`SBAT`) para bloquear gestores de arranque antiguos y vulnerables. Sin embargo, el parche tuvo un fallo y terminó revocando por error los certificados válidos del gestor de arranque `GRUB` en distribuciones modernas de Linux. La consecuencia principal fue que inutilizó sistemas con arranque dual (Windows y Linux), impidiendo que los usuarios pudieran iniciar su sistema operativo Linux, mostrando mensajes de error de violación de seguridad.
+ * `Implicancia de desactivar Secure Boot como solución`:  Desactivar `Secure Boot` desde la `BIOS` fue la solución temporal para poder volver a arrancar Linux. Sin embargo, la implicancia crítica es que se rompe la cadena de confianza del sistema. Al apagarlo, la computadora deja de verificar las firmas criptográficas de lo que se carga antes del sistema operativo, dejando a la máquina totalmente vulnerable a ataques de bajo nivel, como `Bootkits` o `Rootkits`, que pueden instalarse en el núcleo sin ser detectados y han sido estudiados y analizados en el [Trabajo Práctico N°3](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP3%20-%20Modo%20Real%20vs%20Protegido%20y%20UEFI).
+ * `Propósito principal del Secure Boot`:  El propósito central del `Secure Boot` en el proceso de arranque es garantizar que la computadora solo inicie utilizando `SW` (gestores de arranque, Kernel y módulos) que esté criptográficamente firmado y confiado por el fabricante del `HW` o del sistema operativo. Debido a que los usuarios deben desactivarlo como solución temporal para poder tener el arranque dual, esto los deja vulnerables a cualquier código malicioso o no autorizado que se ejecute antes de que el sistema operativo tenga la oportunidad de arrancar.
 
 
 
@@ -1571,3 +1579,7 @@ Debe tener respuestas precisas a las siguientes preguntas y sentencias:
  * [Kernel Panic](https://es.wikipedia.org/wiki/Kernel_panic)
  * [Comando modinfo](https://www.geeksforgeeks.org/linux-unix/modinfo-command-in-linux-with-examples/)
  * [SHA-2](https://es.wikipedia.org/wiki/SHA-2)
+ * [Espacio de Usuario y Kernel](https://en.wikipedia.org/wiki/User_space_and_kernel_space)
+ * [Llamadas de Sistema](https://en.wikipedia.org/wiki/System_call)
+ * [SIGSEGV](https://es.wikipedia.org/wiki/SIGSEGV)
+ * [MOK](https://www.baeldung.com/linux/mok-machine-owner-key)
