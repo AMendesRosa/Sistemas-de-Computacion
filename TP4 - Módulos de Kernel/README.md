@@ -1587,9 +1587,7 @@ Revisando la bibliografía para impulsar acciones que permitan mejorar la seguri
 
 
 ## 3.4- Modificación del módulo: Imprimir el Nombre del Equipo
-Para cumplir con la consigna de imprimir el nombre del equipo en los registros del Kernel, se modificó el código base provisto por la cátedra para invocar las variables de entorno del sistema operativo (ya que no se pueden usar librerías de usuario estándar).  
-
-Se añadió la cabecera `<linux/utsname.h>` y se modificó la función de inicialización del módulo utilizando `init_uts_ns.name.nodename`. El código implementado fue el siguiente:
+Para cumplir con la consigna de imprimir el nombre del equipo en los registros del Kernel, se modificó el código base provisto por la cátedra para invocar las variables de entorno del sistema operativo (ya que no se pueden usar librerías de usuario estándar). Para ello se añadió la cabecera `<linux/utsname.h>` y se modificó la función de inicialización del módulo utilizando `init_uts_ns.name.nodename`. El código implementado fue el siguiente:
 ```c
 #include <linux/module.h>							/* Requerido por todos los módulos */
 #include <linux/kernel.h>							/* Definición de KERN_INFO */
@@ -1615,9 +1613,34 @@ void cleanup_module(void)
 
 
 /* Declaración de funciones init y exit */
-module_init(modulo_lin_init);
-module_exit(modulo_lin_clean);
+// module_init(modulo_lin_init);
+// module_exit(modulo_lin_clean);
 ```
+
+Para no sobreescribir el código, se propuso generar una copia de la carpeta [part1](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Kernel%20Modules/part1) de la carpeta [Kernel Modules](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Kernel%20Modules) de este mismo repositorio y llamarla [part2](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Kernel%20Modules/part2). Allí se alojará a versión modificada del archivo `mimodulo.c` el cual se terminará de construir siguiendo los siguientes comandos:
+
+```bash
+cd part2
+cd module
+make
+sudo insmod mimodulo.ko
+sudo dmesg | tail -n 10
+```
+
+Se ha modificado el comando `sudo dmesg` para que unicamente imprima las ultimas 10 líneas en las que se encuentra la impresión. Luego la salida por termina de estos comandos es la siguiente:
+
+![3.1](https://github.com/ErnestMonja/Sistemas-de-Computacion/blob/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Capturas/3.1-%20Carga%20de%20m%C3%B3dulo%20propio.png)
+
+Como se observa abajo de todo, la impresión del nombre del equipo fue la correcta y era el resultado que se esperaba. De forma adicional, también se verifico la correcta descarga del módulo del kernel mediante los siguientes comandos:
+
+```bash
+sudo rmmod mimodulo
+sudo dmesg | tail -n 10
+```
+
+Nuevamnete tan solo se imprimen as ultimas 10 líneas y la salida de la terminal es la siguiente:
+
+![3.2](https://github.com/ErnestMonja/Sistemas-de-Computacion/blob/main/TP4%20-%20M%C3%B3dulos%20de%20Kernel/Capturas/3.2-%20Descarga%20de%20m%C3%B3dulo%20propio.png)
 
 
 
@@ -1639,3 +1662,5 @@ En esta sección se busca analizar la nota provista sobre el incidente reciente 
  * [Llamadas de Sistema](https://en.wikipedia.org/wiki/System_call)
  * [SIGSEGV](https://es.wikipedia.org/wiki/SIGSEGV)
  * [MOK](https://www.baeldung.com/linux/mok-machine-owner-key)
+ * [“Something has gone seriously wrong,” dual-boot systems warn after Microsoft update](https://arstechnica.com/security/2024/08/a-patch-microsoft-spent-2-years-preparing-is-making-a-mess-for-some-linux-users/)
+ * [Trabajo Práctico N°3 de Sistemas de Computación](https://github.com/ErnestMonja/Sistemas-de-Computacion/tree/main/TP3%20-%20Modo%20Real%20vs%20Protegido%20y%20UEFI)
