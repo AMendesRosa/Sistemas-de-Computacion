@@ -1523,8 +1523,12 @@ Si el módulo de un dispositivo no está disponible ni compilado en el Kernel, e
 
 
 
+
+
+
 ## 2- Arquitectura, Ejecución y Memoria en Linux
 Para comprender a fondo cómo interactúa el `SW` con el sistema operativo, resulta fundamental diferenciar los 2 modos principales de ejecución que posee la arquitectura de Linux: el Espacio de Usuario (User Space) y el Espacio de Kernel (Kernel Space). Esta separación es la raíz de las diferencias fundamentales entre un programa convencional y un módulo del núcleo.
+
 
 
 ### 2.1- Diferencias entre módulo y programa
@@ -1533,10 +1537,12 @@ La diferencia principal radica en su entorno y privilegios ya que un `programa n
 Por otra parte, un `módulo` se ejecuta directamente en el Espacio de Kernel, con privilegios máximos es decir, en `Ring 0`. No tiene una función `main()`, sino que está basado en eventos: posee una función de inicialización que le permite registrarse en el sistema y una función de limpieza, para salir del mismo. Al vivir en el núcleo, un módulo no puede usar librerías de usuario; si quiere imprimir algo, debe usar las funciones internas del kernel (como `printk()` por ejemplo).
 
 
+
 ### 2.2- Llamadas al Sistema y strace
 Dado que un programa normal opera en un entorno restringido, este no puede interactuar por sí solo con el `HW` (por ejemplo, escribir en la pantalla). Para lograrlo, debe pedirle permiso y ayuda al Kernel. Esta comunicación se realiza a través de las Llamadas al Sistema (`System Calls` o syscalls).
 
 Inclusive un programa tan simple como un "Hola Mundo" en `C`, no imprime el texto directamente sino que invoca a la `syscall write()` para que el Kernel lo haga por él. Para poder ver y auditar esta lista de peticiones en tiempo real, existe una herramienta llamada `strace`. Ejecutando en la terminal el comando: `strace ./helloworld`, se puede interceptar y observar absolutamente todas las llamadas al sistema (como `execve`, `mmap`, `write`, `exit`, etc.) que el programa le solicita al Kernel desde que inicia hasta que finaliza.
+
 
 
 ### 2.3- Segmentation Fault y su manejo
@@ -1544,8 +1550,19 @@ Esta estricta separación de espacios, también define cómo el sistema operativ
  * `Si el fallo lo comete un programa (Espacio de Usuario)`: El `HW` de la computadora detecta la infracción y le avisa al Kernel el cual intercepta el error, le envía una señal letal (`SIGSEGV`) al programa y lo "mata" de forma limpia. El programa colapsa, pero el resto de la computadora y el sistema operativo siguen funcionando perfectamente.
  * `Si el fallo lo comete un módulo (Espacio de Kernel)`: Como el módulo ya se está ejecutando dentro del propio cerebro del sistema operativo con acceso irrestricto, un "puntero salvaje" corrompe la memoria vital del sistema. Al no haber nadie por "encima" del kernel para matarlo de forma segura, el sistema operativo entero entra en pánico para evitar daños irreparables en los discos o el hardware. Esto desencadena un `Kernel Panic`, congelando la computadora por completo y obligando al usuario a realizar un reinicio físico.
 
-### 2.4- ...
-Drivers. Investigar contenido de /dev.
+
+
+### 2.4- Drivers y el contenido del directorio /dev
+En Linux existe una filosofía fundamental: "Todo es un archivo". Para que los programas del Espacio de Usuario puedan interactuar con el `HW` (discos duros, teclados, puertos serie, etc.), el sistema operativo utiliza controladores o `Drivers`. Un Driver suele ser un módulo del Kernel que actúa como traductor entre el `HW` físico y el sistema operativo.  
+
+Cuando un driver se carga en el sistema, suele registrar un archivo especial (nodo de dispositivo) dentro del directorio `/dev`. Al investigar el contenido de `/dev`, no encontraremos archivos de texto o carpetas normales que ocupen espacio en el disco, sino interfaces de comunicación directa con los drivers. Por ejemplo:
+ * `/dev/sda`: Representa el primer disco duro de la computadora.
+ * `/dev/tty`: Representa la terminal actual.
+ * `/dev/null`: Es un "agujero negro" virtual; todo lo que se envía allí se descarta.
+De esta forma, si un programa de usuario desea leer información del disco duro, simplemente debe hacer una llamada al sistema para abrir y leer el archivo /dev/sda, y el Kernel se encarga de que el driver físico realice la acción.
+
+
+
 
 
 
@@ -1555,13 +1572,43 @@ La consigna propone el desafío de intentar firmar un módulo de Kernel y docume
 
 Sin embargo, esto nos lleva directamente a la respuesta de Pregunta 10: `¿Qué pasa si un compañero con Secure Boot habilitado intenta cargar ese módulo firmado por mí?.` La respuesta es que el sistema rechazará la carga del módulo y arrojará un error de: `Key was rejected by service` debido a que el `Secure Boot` del compañero solo confía en las claves públicas que están registradas en el firmware de su placa base (`UEFI`) o en su base de datos de claves (es decir la: `MOK` - Machine Owner Key). Aunque el módulo se encuentre firmado digitalmente, el sistema del compañero no tiene tu clave pública para validar esa firma. Para que esto funcione, se tendría que pasar tu clave pública y el compañero debería registrarla manualmente en la `BIOS/UEFI` de su computadora antes de cargar el módulo.
 
-Volviendo a la consigna, 
- - ¿Qué es checkinstall y para qué sirve?
- - ¿Se animan a usarlo para empaquetar un hello world ?
- - Revisar la bibliografía para impulsar acciones que permitan mejorar la seguridad del kernel, concretamente: evitando cargar módulos que no estén firmados. rootkits ? 
+
+
+## 3.2- Checkinstall y el empaquetado de un "Hello World"
+Para facilitar la gestión de `SW`, la cátedra plantea el uso de herramientas de empaquetado.
+ * `¿Qué es checkinstall y para qué sirve?`: Es una herramienta que facilita la creación de paquetes instalables (como los `.deb` en Debian/Ubuntu o `.rpm` en RedHat) a partir del código fuente de un programa. Normalmente, compilar e instalar un programa desde el código fuente (usando `make install`) esparce archivos por todo el sistema, volviendo muy difícil su posterior desinstalación. `Checkinstall` intercepta este proceso, empaqueta todos los archivos generados y crea un paquete del sistema, permitiendo que luego se pueda instalar, actualizar o eliminar limpiamente usando el gestor de paquetes (como `apt` o `dpkg`).
+ * `Empaquetar un Hello World`: Para lograr este desafío, se debe compilar el programa `C` (`gcc helloworld.c -o helloworld`), crear un archivo Makefile básico que incluya una regla `install` (que copie el ejecutable a un directorio como: `/usr/local/bin/`), y finalmente, en lugar de ejecutar `sudo make install`, se ejecuta `sudo checkinstall`. El asistente guiará el proceso y arrojará como resultado un archivo `helloworld_1.0-1_amd64.deb` listo para ser distribuido.  
 
 
 
+## 3.3- Acciones de seguridad en el Kernel y Rootkits
+Revisando la bibliografía para impulsar acciones que permitan mejorar la seguridad del kernel, la medida más drástica y efectiva es evitar la carga de módulos que no estén firmados. Esto se logra forzando la validación criptográfica desde la configuración del núcleo (activando el parámetro `CONFIG_MODULE_SIG_FORCE=y` al compilar el Kernel) o manteniendo el `Secure Boot` activado. Al exigir firmas, el sistema rechaza automáticamente cualquier archivo `.ko` de procedencia dudosa.
+
+
+
+## 3.4- Modificación del módulo: Imprimir el Nombre del Equipo
+Para cumplir con la consigna de imprimir el nombre del equipo en los registros del Kernel, se modificó el código base provisto por la cátedra para invocar las variables de entorno del sistema operativo (ya que no se pueden usar librerías de usuario estándar).  
+
+Se añadió la cabecera `<linux/utsname.h>` y se modificó la función de inicialización del módulo utilizando `init_uts_ns.name.nodename`. El código implementado fue el siguiente:
+```c
+#include <linux/module.h>
+#include <linux/kernel.h>
+#include <linux/utsname.h>
+
+int init_module(void)
+{
+    printk(KERN_INFO "Módulo cargado exitosamente.\n");
+    printk(KERN_INFO "Nombre del equipo anfitrión: %s\n", init_uts_ns.name.nodename);
+    return 0;
+}
+
+void cleanup_module(void)
+{
+    printk(KERN_INFO "Módulo descargado del kernel.\n");
+}
+
+MODULE_LICENSE("GPL");
+```
 
 
 
@@ -1573,7 +1620,7 @@ En esta sección se busca analizar la nota provista sobre el incidente reciente 
 
 
 
-## 4- Bibliografía
+## 5- Bibliografía
  * [Kernel o Núcleo Monolítico](https://es.wikipedia.org/wiki/N%C3%BAcleo_monol%C3%ADtico)
  * [Repositorio de Kernel Modules](https://gitlab.com/sistemas-de-computacion-unc/kenel-modules)
  * [Kernel Panic](https://es.wikipedia.org/wiki/Kernel_panic)
