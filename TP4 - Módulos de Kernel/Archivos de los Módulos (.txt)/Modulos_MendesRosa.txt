@@ -1,0 +1,65 @@
+Module                  Size  Used by
+snd_seq_dummy          12288  0
+snd_hrtimer            12288  1
+qrtr                   53248  2
+snd_intel8x0           53248  1
+snd_ac97_codec        196608  1 snd_intel8x0
+ac97_bus               12288  1 snd_ac97_codec
+intel_rapl_msr         20480  0
+snd_pcm               200704  2 snd_intel8x0,snd_ac97_codec
+intel_rapl_common      53248  1 intel_rapl_msr
+intel_uncore_frequency_common    20480  0
+snd_seq_midi           24576  0
+intel_pmc_core        135168  0
+pmt_telemetry          16384  1 intel_pmc_core
+snd_seq_midi_event     16384  1 snd_seq_midi
+pmt_discovery          20480  1 pmt_telemetry
+snd_rawmidi            57344  1 snd_seq_midi
+pmt_class              20480  2 pmt_telemetry,pmt_discovery
+intel_pmc_ssram_telemetry    16384  1 intel_pmc_core
+intel_vsec             24576  2 intel_pmc_ssram_telemetry,pmt_telemetry
+snd_seq               122880  9 snd_seq_midi,snd_seq_midi_event,snd_seq_dummy
+snd_seq_device         16384  3 snd_seq,snd_seq_midi,snd_rawmidi
+polyval_clmulni        12288  0
+ghash_clmulni_intel    12288  0
+snd_timer              53248  3 snd_seq,snd_hrtimer,snd_pcm
+aesni_intel            98304  0
+rapl                   20480  0
+snd                   143360  11 snd_seq,snd_seq_device,snd_intel8x0,snd_timer,snd_ac97_codec,snd_pcm,snd_rawmidi
+i2c_piix4              32768  0
+i2c_smbus              20480  1 i2c_piix4
+vboxguest              57344  0
+soundcore              16384  1 snd
+joydev                 32768  0
+input_leds             12288  0
+mac_hid                12288  0
+serio_raw              20480  0
+binfmt_misc            24576  1
+sch_fq_codel           24576  2
+msr                    12288  0
+parport_pc             53248  0
+ppdev                  24576  0
+lp                     32768  0
+parport                73728  3 parport_pc,lp,ppdev
+efi_pstore             12288  0
+nfnetlink              20480  1
+dmi_sysfs              20480  0
+ip_tables              32768  0
+x_tables               65536  1 ip_tables
+autofs4                57344  2
+hid_generic            12288  0
+usbhid                 77824  0
+vboxvideo              36864  1
+hid                   262144  2 usbhid,hid_generic
+vga16fb                32768  0
+drm_vram_helper        24576  1 vboxvideo
+ahci                   49152  1
+drm_ttm_helper         16384  3 drm_vram_helper,vboxvideo
+vgastate               20480  1 vga16fb
+psmouse               217088  0
+pata_acpi              12288  0
+video                  77824  0
+e1000                 180224  0
+libahci                53248  1 ahci
+ttm                   126976  2 drm_vram_helper,drm_ttm_helper
+wmi                    28672  1 video
