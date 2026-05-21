@@ -1,0 +1,365 @@
+Vendor: 0x27c6 
+  Device: 0x0d53 "VEN_27C6:00 27C6:0D53 Touchpad"
+  Compatible to: int 0x0210 0x0001
+  Device File: /dev/input/mice (/dev/input/mouse1)
+  Device Files: /dev/input/mice, /dev/input/mouse1, /dev/input/event5, /dev/input/by-path/pci-0000:00:15.3-platform-i2c_designware.2-event-mouse, /dev/input/by-path/pci-0000:00:15.3-platform-i2c_designware.2-mouse
+  Device Number: char 13:63 (char 13:33)
+  Driver Info #0:
+    Buttons: 1
+    Wheels: 0
+    XFree86 Protocol: explorerps/2
+    GPM Protocol: exps2
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+81: PS/2 00.0: 10500 PS/2 Mouse
+  [Created at input.249]
+  Unique ID: AH6Q.U5GX9Ignjc0
+  Hardware Class: mouse
+  Model: "PS/2 Generic Mouse"
+  Vendor: 0x0002 
+  Device: 0x0001 "PS/2 Generic Mouse"
+  Compatible to: int 0x0210 0x0003
+  Device File: /dev/input/mice (/dev/input/mouse2)
+  Device Files: /dev/input/mice, /dev/input/mouse2, /dev/input/event6, /dev/input/by-path/platform-i8042-serio-1-event-mouse, /dev/input/by-path/platform-i8042-serio-1-mouse
+  Device Number: char 13:63 (char 13:34)
+  Driver Info #0:
+    Buttons: 3
+    Wheels: 0
+    XFree86 Protocol: explorerps/2
+    GPM Protocol: exps2
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+82: None 00.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: rdCR.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1646 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+83: None 01.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: wkFv.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 2000 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+84: None 02.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: +rIN.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1960 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+85: None 03.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: 4zLr.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1950 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+86: None 04.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: 94PJ.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 400 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+87: None 05.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: EBSn.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1817 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+88: None 06.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: JIVF.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 2003 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+89: None 07.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: OPYj.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 400 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+90: None 08.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: TWbB.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1666 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+91: None 09.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: Ydef.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1941 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+92: None 0a.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: dkh7.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1975 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+93: None 0b.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: hrkb.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 400 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+94: None 0c.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: myn3.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 400 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+95: None 0d.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: r3rX.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1000 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+96: None 0e.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: wAu+.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1000 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+97: None 0f.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: +HxT.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1944 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+98: None 10.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: 4P_x.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1672 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+99: None 11.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: 9W1Q.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 400 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+100: None 12.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: Ed4u.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1721 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+101: None 13.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: Jk7M.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 1892 MHz
+  BogoMips: 6144.00
+  Cache: 24576 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+102: None 14.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: OrAq.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 400 MHz
+  BogoMips: 6144.00
+  Cache: 2048 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+103: None 15.0: 10103 CPU
+  [Created at cpu.465]
+  Unique ID: TyDI.j8NaKXDZtZ6
+  Hardware Class: cpu
+  Arch: X86-64
+  Vendor: "GenuineIntel"
+  Model: 6.170.4 "Intel(R) Core(TM) Ultra 9 185H"
+  Features: fpu,vme,de,pse,tsc,msr,pae,mce,cx8,apic,sep,mtrr,pge,mca,cmov,pat,pse36,clflush,dts,acpi,mmx,fxsr,sse,sse2,ss,ht,tm,pbe,syscall,nx,pdpe1gb,rdtscp,lm,constant_tsc,art,arch_perfmon,pebs,bts,rep_good,nopl,xtopology,nonstop_tsc,cpuid,aperfmperf,tsc_known_freq,pni,pclmulqdq,dtes64,monitor,ds_cpl,vmx,smx,est,tm2,ssse3,sdbg,fma,cx16,xtpr,pdcm,pcid,sse4_1,sse4_2,x2apic,movbe,popcnt,tsc_deadline_timer,aes,xsave,avx,f16c,rdrand,lahf_lm,abm,3dnowprefetch,cpuid_fault,epb,ssbd,ibrs,ibpb,stibp,ibrs_enhanced,tpr_shadow,flexpriority,ept,vpid,ept_ad,fsgsbase,tsc_adjust,bmi1,avx2,smep,bmi2,erms,invpcid,rdseed,adx,smap,clflushopt,clwb,intel_pt,sha_ni,xsaveopt,xsavec,xgetbv1,xsaves,split_lock_detect,user_shstk,avx_vnni,dtherm,ida,arat,pln,pts,hwp,hwp_notify,hwp_act_window,hwp_epp,hwp_pkg_req,hfi,vnmi,umip,pku,ospke,waitpkg,gfni,vaes,vpclmulqdq,rdpid,bus_lock_detect,movdiri,movdir64b,fsrm,md_clear,serialize,pconfig,arch_lbr,ibt,flush_l1d,arch_capabilities
+  Clock: 400 MHz
+  BogoMips: 6144.00
+  Cache: 2048 kb
+  Units/Processor: 128
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+104: None 00.0: 10700 Loopback
+  [Created at net.126]
+  Unique ID: ZsBS.GQNx7L4uPNA
+  SysFS ID: /class/net/lo
+  Hardware Class: network interface
+  Model: "Loopback network interface"
+  Device File: lo
+  Link detected: yes
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+105: None 00.0: 10701 Ethernet
+  [Created at net.126]
+  Unique ID: 63Vg.ndpeucax6V1
+  Parent ID: Dhtl.ouRWMiZ1f49
+  SysFS ID: /class/net/wlp0s20f3
+  SysFS Device Link: /devices/pci0000:00/0000:00:14.3
+  Hardware Class: network interface
+  Model: "Ethernet network interface"
+  Driver: "iwlwifi"
+  Driver Modules: "iwlwifi"
+  Device File: wlp0s20f3
+  HW Address: a0:d3:65:e3:30:e6
+  Permanent HW Address: a0:d3:65:e3:30:e6
+  Link detected: yes
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #37 (WLAN controller)
