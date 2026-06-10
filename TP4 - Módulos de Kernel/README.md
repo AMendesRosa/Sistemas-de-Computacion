@@ -1582,19 +1582,19 @@ Sin embargo, esto nos lleva directamente a la respuesta de Pregunta 10: `¿Qué 
 
 
 
-## 3.2- Checkinstall y el empaquetado de un "Hello World"
+### 3.2- Checkinstall y el empaquetado de un "Hello World"
 Para facilitar la gestión de `SW`, la cátedra plantea el uso de herramientas de empaquetado.
  * `¿Qué es checkinstall y para qué sirve?`: Es una herramienta que facilita la creación de paquetes instalables (como los `.deb` en Debian/Ubuntu o `.rpm` en RedHat) a partir del código fuente de un programa. Normalmente, compilar e instalar un programa desde el código fuente (usando `make install`) esparce archivos por todo el sistema, volviendo muy difícil su posterior desinstalación. `Checkinstall` intercepta este proceso, empaqueta todos los archivos generados y crea un paquete del sistema, permitiendo que luego se pueda instalar, actualizar o eliminar limpiamente usando el gestor de paquetes (como `apt` o `dpkg`).
  * `Empaquetar un Hello World`: Para lograr este desafío, se debe compilar el programa `C` (`gcc helloworld.c -o helloworld`), crear un archivo Makefile básico que incluya una regla `install` (que copie el ejecutable a un directorio como: `/usr/local/bin/`), y finalmente, en lugar de ejecutar `sudo make install`, se ejecuta `sudo checkinstall`. El asistente guiará el proceso y arrojará como resultado un archivo `helloworld_1.0-1_amd64.deb` listo para ser distribuido.  
 
 
 
-## 3.3- Acciones de seguridad en el Kernel y Rootkits
+### 3.3- Acciones de seguridad en el Kernel y Rootkits
 Revisando la bibliografía para impulsar acciones que permitan mejorar la seguridad del kernel, la medida más drástica y efectiva es evitar la carga de módulos que no estén firmados. Esto se logra forzando la validación criptográfica desde la configuración del núcleo (activando el parámetro `CONFIG_MODULE_SIG_FORCE=y` al compilar el Kernel) o manteniendo el `Secure Boot` activado. Al exigir firmas, el sistema rechaza automáticamente cualquier archivo `.ko` de procedencia dudosa.
 
 
 
-## 3.4- Modificación del módulo: Imprimir el Nombre del Equipo
+### 3.4- Modificación del módulo: Imprimir el Nombre del Equipo
 Para cumplir con la consigna de imprimir el nombre del equipo en los registros del Kernel, se modificó el código base provisto por la cátedra para invocar las variables de entorno del sistema operativo (ya que no se pueden usar librerías de usuario estándar). Para ello se añadió la cabecera `<linux/utsname.h>` y se modificó la función de inicialización del módulo utilizando `init_uts_ns.name.nodename`. El código implementado fue el siguiente:
 ```c
 #include <linux/module.h>							/* Requerido por todos los módulos */
