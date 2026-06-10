@@ -403,77 +403,82 @@ python3 ~/servidor.py
 ### Arranque de la VM
 
 <div align="center">
-  <img src="./imagenes/01.png"
+  <img src="./imagenes/01.png">
   <br>
   <i>Comando QEMU en la terminal.</i>
 </div>
 
 <div align="center">
-  <img src="./imagenes/02_1.png"
+  <img src="./imagenes/02_1.png">
   <br>
   <i>Prompt `localhost login:` luego del booteo.</i>
 </div>
 
 <div align="center">
-  <img src="./imagenes/02_2.png"
+  <img src="./imagenes/02_2.png">
   <br>
-  <i>Conexión desde otra terminal a la VM.</i>
+	<i>Conexión desde otra terminal a la VM.</i>
 </div>
-
 
 ### Verificación de instalación de headers
 
 <div align="center">
-  <img src="./imagenes/03.png"
+  <img src="./imagenes/03.png">
   <br>
-  <i>Headers instalados en la VM — salida del `ls /usr/src/`.</i>
+	<i>Headers instalados en la VM — salida del `ls /usr/src/`.</i>
 </div>
 
 ### Creación del kernel object
 
 <div align="center">
-  <img src="./imagenes/04.png"
+  <img src="./imagenes/04.png">
   <br>
-  <i>Compilación exitosa — salida del `make` con la presencia de `sensor_driver.ko`.</i>
+	<i>Compilación exitosa — salida del `make` con la presencia de `sensor_driver.ko`.</i>
 </div>
+
 
 ### Carga del driver y confirmación
 
 <div align="center">
-  <img src="./imagenes/05.png"
+  <img src="./imagenes/05.png">
   <br>
-  <i>Carga del driver — `dmesg` mostrando major asignado y mensaje de carga, más `ls -la /dev/sensor` confirmando la creación automática del nodo.</i>
+	<i>Carga del driver — `dmesg` muestra el major y mensaje de carga. `ls -la /dev/sensor` confirma la creación del nodo.</i>
 </div>
 
 ### Prueba del sensor y selección
 
 <div align="center">
-  <img src="./imagenes/06.png"
+  <img src="./imagenes/06.png">
   <br>
-  <i>Prueba desde terminal — secuencia de `cat`, `echo "1" >` y segundo `cat` mostrando el cambio de sensor.</i>
+	<i>Prueba desde terminal — Muestra el cambio de sensor.</i>
 </div>
+
+
 
 ### Lanzamiento del servidor
 
 <div align="center">
-  <img src="./imagenes/07.png"
+  <img src="./imagenes/07.png">
   <br>
-  <i>Ejecución de la orden de lanzamiento del servidor con Python.</i>
+	<i>Ejecución de la orden de lanzamiento del servidor con Python.</i>
 </div>
+  
 
 ### Interfaz web - Gráficos de sensores
 
 <div align="center">
-  <img src="./imagenes/08.png"
+  <img src="./imagenes/08.png">
   <br>
-  <i>Sensor 0 (temperatura) graficándose en tiempo real.</i>
+	<i>Sensor 0 (temperatura) graficándose en tiempo real.</i>
 </div>
 
+
 <div align="center">
-  <img src="./imagenes/09.png"
+  <img src="./imagenes/09.png">
   <br>
-  <i>Sensor 1 (humedad) graficándose en tiempo real.</i>
+	<i>Sensor 1 (humedad) graficándose en tiempo real.</i>
 </div>
+
 
 ---
 
