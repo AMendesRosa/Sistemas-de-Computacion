@@ -415,7 +415,7 @@ python3 ~/servidor.py
 </div>
 
 <div align="center">
-  <img src="./imagenes/02_1.png"
+  <img src="./imagenes/02_2.png"
   <br>
   <i>Conexión desde otra terminal a la VM.</i>
 </div>
@@ -453,12 +453,12 @@ python3 ~/servidor.py
   <i>Prueba desde terminal — secuencia de `cat`, `echo "1" >` y segundo `cat` mostrando el cambio de sensor.</i>
 </div>
 
-### 
+### Lanzamiento del servidor
 
 <div align="center">
   <img src="./imagenes/07.png"
   <br>
-  <i>Lanzamiento del servidor con Python.</i>
+  <i>Ejecución de la orden de lanzamiento del servidor con Python.</i>
 </div>
 
 ### Interfaz web - Gráficos de sensores
